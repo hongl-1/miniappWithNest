@@ -1,0 +1,26 @@
+@for $i from 1 through 500 {
+  .mt-#{$i} { margin-top: $i + rpx; }
+  .mb-#{$i} { margin-bottom: $i + rpx; }
+  .ml-#{$i} { margin-left: $i + rpx; }
+  .mr-#{$i} { margin-right: $i + rpx; }
+  .mx-#{$i} { margin:0 $i + rpx; }
+  .my-#{$i} { margin: $i + rpx 0; }
+  .h-#{$i} { height: $i + rpx; }
+  .lh-#{$i} { line-height: $i + rpx; }
+  .pt-#{$i} { padding-top: $i + rpx; }
+  .pb-#{$i} { padding-bottom: $i + rpx; }
+  .pl-#{$i} { padding-left: $i + rpx; }
+  .pr-#{$i} { padding-right: $i + rpx; }
+  .px-#{$i} { padding:0 $i + rpx; }
+  .py-#{$i} { padding: $i + rpx 0; }
+}
+
+.ma {
+  margin: 0 auto;
+}
+
+.tc {
+  text-align: center;
+}
+
+

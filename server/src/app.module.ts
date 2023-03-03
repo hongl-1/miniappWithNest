@@ -4,15 +4,17 @@ import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { TopicModule } from './topic/topic.module';
 import { UserModule } from './user/user.module';
+import { TopicCategoryModule } from './topic-category/topic-category.module';
+import { ExamCategoryModule } from './exam-category/exam-category.module';
 
 @Module({
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: '115.29.178.53',
+      port: 3307,
       username: 'root',
-      password: 'admin123',
+      password: 'Hongliang123@',
       database: 'ruankao',
       autoLoadModels: true,
       synchronize: true,
@@ -20,6 +22,8 @@ import { UserModule } from './user/user.module';
     }),
     TopicModule,
     UserModule,
+    TopicCategoryModule,
+    ExamCategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

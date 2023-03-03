@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { TopicService } from './topic.service';
 import { CreateTopicDto } from './dto/create-topic.dto';
@@ -26,6 +27,14 @@ export class TopicController {
   @Get()
   async findAll() {
     return await this.topicService.findAll();
+  }
+
+  @Get('findByCategoryId')
+  async findByCategoryId(
+    @Query('categoryId') categoryId: string,
+    @Query('audit') audit: number = null,
+  ) {
+    return await this.topicService.findByCategoryId(+categoryId, audit);
   }
 
   @Get(':id')

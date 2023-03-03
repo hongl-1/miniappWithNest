@@ -3,7 +3,7 @@ import { CreateTopicDto } from './dto/create-topic.dto';
 import { UpdateTopicDto } from './dto/update-topic.dto';
 import { InjectModel } from '@nestjs/sequelize';
 import { Topic } from './entities/topic.entity';
-import sequelize from 'sequelize';
+import { WhereOptions } from 'sequelize/types/model';
 
 @Injectable()
 export class TopicService {
@@ -27,6 +27,18 @@ export class TopicService {
   async findOne(id: number) {
     return await this.TopicModel.findOne({
       where: { id, isDelete: 0 },
+    });
+  }
+
+  async findByCategoryId(categoryId, audit) {
+    const condition: WhereOptions<UpdateTopicDto> = {
+      categoryId,
+    };
+    if (typeof audit !== 'undefined') {
+      condition.audit = +audit;
+    }
+    return await this.TopicModel.findAll({
+      where: condition,
     });
   }
 
